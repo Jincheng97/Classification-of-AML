@@ -25,4 +25,4 @@ In the project file folder .\Classification-of-AML\ there are
 I used a merged 3-layer neural network for classification. Shown below is the network structure.  
 ![NN model structure](/model.png)
 The training accuracy is about 94% while the validation accuracy is about 89%.  
-Among the 180 unlabeled subjects, my prediction is that 20 of them are AML while the others are normal.
+Among the 180 unlabeled subjects, my prediction is that 20 of them are AML while the others are normal. Please refer to 'AMLPrediction.csv' file for detailed results.
