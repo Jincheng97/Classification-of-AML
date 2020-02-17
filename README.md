@@ -21,9 +21,40 @@ In the project file folder there are
 		...  
 		...  
 		- 2872.CSV  
-Please run NeuralTraining.ipynb first to train the model. The model is saved to model.h5 and model_weights.h5. Then run NeuralTesting.ipynb to apply the testing data to the saved model to get the results.
+
+Please run NeuralTraining.ipynb first to train the model. The model is saved to model.h5 and model_weights.h5. Then run NeuralTesting.ipynb to apply the testing data to the saved model to get the results. It takes about 75 minutes to sample from the csv files and train the neural network model.
 ## Method and Result
 I used a merged 3-layer neural network for classification. Shown below is the network structure.  
 ![NN model structure](/model.png)
 The training accuracy is about 94% while the validation accuracy is about 89%.  
-Among the 180 unlabeled subjects, my prediction is that 20 of them are AML while the others are normal. Please refer to 'AMLPrediction.csv' file for detailed results.
+|  | Pred: normal | Pred: AML |
+| --- | --- | --- |
+| Truth: normal | 146702 | 14298 |
+|Truth: AML | 5750 | 150250 |
+
+- Accuracy: 0.936757097791798  
+- F-measure:0.9374571047081871  
+- Balanced accuracy: 0.9371667861124384  
+- MCC: 0.8748619424601002  
+  
+Among the 180 unlabeled subjects, my prediction is that 20 of them are AML while the others are normal. Please refer to 'AMLPrediction.csv' file for detailed results.  
+- Subject 203 is AML. Confidence: 0.97  
+- Subject 205 is AML. Confidence: 0.99  
+- Subject 211 is AML. Confidence: 1.0  
+- Subject 219 is AML. Confidence: 0.92  
+- Subject 221 is AML. Confidence: 0.96  
+- Subject 227 is AML. Confidence: 1.0  
+- Subject 236 is AML. Confidence: 0.63  
+- Subject 239 is AML. Confidence: 0.77  
+- Subject 250 is AML. Confidence: 0.5  
+- Subject 261 is AML. Confidence: 0.9  
+- Subject 262 is AML. Confidence: 1.0  
+- Subject 269 is AML. Confidence: 0.96  
+- Subject 284 is AML. Confidence: 0.98  
+- Subject 285 is AML. Confidence: 0.94  
+- Subject 299 is AML. Confidence: 0.99  
+- Subject 314 is AML. Confidence: 0.99  
+- Subject 326 is AML. Confidence: 0.97  
+- Subject 337 is AML. Confidence: 0.9299999999999999  
+- Subject 344 is AML. Confidence: 0.77  
+- Subject 348 is AML. Confidence: 1.0
