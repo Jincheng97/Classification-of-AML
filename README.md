@@ -5,7 +5,7 @@ This is the early term project of BMED 6517, Georgia Institute of Technology. Ou
 The data are drawn from 359 subjects, among whom 316 are normal while 43 are AML. For each subject, one blood sample is taken and split into 8 tubes. For each tube, 7 channels are measured (FSC, SSC, 5 protein markers). The 5 protein markers for each tube measure different kinds of proteins. (In total 5 * 8 = 40 kinds of proteins are measured.)  
 Normal/AML class labels of 179 samples are given. The task is to predict the class labels of the remaining 180 samples.  
 All data can be downloaded from http://pengqiu.gatech.edu/MLB/CSV.zip.  
-**Noting that there are more than 10,000 rows of data in each of the 2872 csv files, which is far more than enough, and could slow down the program severely, I used only a part of them to make a smaller dataset. Also, in order to make an unbiased smaller dataset, I collected 1000 rows from each csv file which comes from a normal subject, and 7000 rows from each csv file which comes from an AML subject. In total, 317000 rows of data was collected, among which 161000 rows of data was collected from 23 AML subjects amd 156000 rows of data was collected from 156 normal subjects.**
+**Noting that there are more than 10,000 rows of data in each of the 2872 csv files, which is far more than enough, and could slow down the program severely, I used only a part of them to make a smaller dataset. Also, in order to make an unbiased smaller dataset, I collected 1000 rows from each csv file which comes from a normal subject, and 7000 rows from each csv file which comes from an AML subject.** In total, 317,000 rows of data was collected, among which 161,000 rows of data was collected from 23 AML subjects amd 156,000 rows of data was collected from 156 normal subjects.
 
 ## Tips for running the codes
 After downloading all data, please put all csv files and ipynb files in file folders with a structure shown below.  
@@ -40,6 +40,7 @@ The training accuracy is about 94% while the validation accuracy is about 89%.
 - Balanced accuracy: 0.9371667861124384  
 - MCC: 0.8748619424601002  
   
+In order to make a prediction on each of the 180 unknown subjects, I collected 100 rows of data from their 8 csv files respectively, and use each of the rows to make a vote. For example, for subject No. 180, I fed the first row of data in from "1433.csv" to "1440.csv" (8 files) to the classifier. The result is that the normal_score for this row is while the AML_score is . Thus, the first row votes "normal" for subject No. 180. Then, I fed the 8 second rows to the classifier and get another vote. Keep doing this for the first 100 rows of the 8 csv files of subject No. 180. If there are more "normal" votes than "AML" votes, subject No. 180 should be predicted as "normal". (Vice versa.) I also defined a value "confidence" to represent the portion of AML votes among all votes.  
 Among the 180 unlabeled subjects, my prediction is that 20 of them are AML while the others are normal. Please refer to 'AMLPrediction.csv' file for detailed results.  
 - Subject 203 is AML. Confidence: 0.97  
 - Subject 205 is AML. Confidence: 0.99  
