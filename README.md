@@ -5,7 +5,8 @@ This is the early term project of BMED 6517, Georgia Institute of Technology. Ou
 The data are drawn from 359 subjects, among whom 316 are normal while 43 are AML. For each subject, one blood sample is taken and split into 8 tubes. For each tube, 7 channels are measured (FSC, SSC, 5 protein markers). The 5 protein markers for each tube measure different kinds of proteins. (In total 5 * 8 = 40 kinds of proteins are measured.)  
 Normal/AML class labels of 179 samples are given. The task is to predict the class labels of the remaining 180 samples.  
 All data can be downloaded from http://pengqiu.gatech.edu/MLB/CSV.zip.  
-**Noting that there are more than 10,000 rows of data in each of the 2872 csv files, which is far more than enough, and could slow down the program severely, I used only a part of them to make a smaller dataset. Also, in order to make an unbiased smaller dataset, I collected 1000 rows from each csv file which comes from a normal subject, and 7000 rows from each csv file which comes from an AML subject.** In total, 317,000 rows of data was collected, among which 161,000 rows of data was collected from 23 AML subjects amd 156,000 rows of data was collected from 156 normal subjects.
+**Noting that there are more than 10,000 rows of data in each of the 2872 csv files, which is far more than enough, and could slow down the program severely, I used only a part of them to make a smaller dataset. Also, in order to make an unbiased smaller dataset, I collected 1000 rows from each csv file which comes from a normal subject, and 7000 rows from each csv file which comes from an AML subject.** In total, 317,000 rows of data was collected, among which 161,000 rows of data was collected from 23 AML subjects amd 156,000 rows of data was collected from 156 normal subjects.  
+p.s. I used Z-normalization on the first column "FS Lin", as the value of this column is much larger than the others.
 
 ## Tips for running the codes
 After downloading all data, please put all csv files and ipynb files in file folders with a structure shown below.  
@@ -27,7 +28,7 @@ In the project file folder there are
 Please run NeuralTraining.ipynb first to train the model. The model is saved to model.h5 and model_weights.h5. Then run NeuralTesting.ipynb to apply the testing data to the saved model to get the results. You can also just use the model file trained by myself, which can be loaded in NeuralTesting.ipynb. It takes **about 60 minutes** to sample from the csv files and train the neural network model.
 
 ## Method and Result
-**I used a merged 3-layer neural network for classification.** Shown below is the network structure.  
+**I used a merged 3-layer neural network for classification.** Shown below is the network structure. **Each input is one row of data (7 features) from one of the 8 csv files.** For example, for the first training step, input1 could be the first row of "0001.csv", input2 could be the first row of "0002.csv", and input8 could be the first row of "0008.csv". For the second training step, take the second rows of the 8 csv files.  
 ![NN model structure](/model.png)
 **The training accuracy is about 94% while the validation accuracy is about 89%.**  
 |  | Pred: normal | Pred: AML |
