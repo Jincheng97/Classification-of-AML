@@ -32,15 +32,15 @@ I used a merged 3-layer neural network for classification. Shown below is the ne
 The training accuracy is about 94% while the validation accuracy is about 89%.  
 |  | Pred: normal | Pred: AML |
 | --- | --- | --- |
-| Truth: normal | 146702 | 14298 |
-|Truth: AML | 5750 | 150250 |
+| Truth: normal | 146,702 | 14,298 |
+|Truth: AML | 5,750 | 150,250 |
 
 - Accuracy: 0.936757097791798  
 - F-measure:0.9374571047081871  
 - Balanced accuracy: 0.9371667861124384  
 - MCC: 0.8748619424601002  
   
-In order to make a prediction on each of the 180 unknown subjects, I collected 100 rows of data from their 8 csv files respectively, and use each of the rows to make a vote. For example, for subject No. 180, I fed the first row of data in from "1433.csv" to "1440.csv" (8 files) to the classifier. The result is that the normal_score for this row is 1597.8376 while the AML_score is 7.293128. Thus, the first row votes "normal" for subject No. 180. Then, I fed the 8 second rows to the classifier and get another vote. Keep doing this for the first 100 rows of the 8 csv files of subject No. 180. If there are more "normal" votes than "AML" votes, subject No. 180 should be predicted as "normal". (Vice versa.) I also defined a value "confidence" to represent the portion of AML votes among all votes.  
+**In order to make a prediction on each of the 180 unknown subjects, I collected 1,000 rows of data from their 8 csv files respectively, and use each of the rows to make a vote, then predict based on the majority of votes.** For example, for subject No. 180, I fed the first row of data in from "1433.csv" to "1440.csv" (8 files) to the classifier. The result is that the normal_score for this row is 1597.8376 while the AML_score is 7.293128. Thus, the first row votes "normal" for subject No. 180. Then, I fed the 8 second rows to the classifier and get another vote. Keep doing this for the first 100 rows of the 8 csv files of subject No. 180. If there are more "normal" votes than "AML" votes, subject No. 180 should be predicted as "normal". (Vice versa.) I also defined a value "confidence" to represent the portion of AML votes among all votes.  
 Among the 180 unlabeled subjects, my prediction is that 20 of them are AML while the others are normal. Please refer to 'AMLPrediction.csv' file for detailed results.  
 - Subject 203 is AML. Confidence: 0.979
 - Subject 205 is AML. Confidence: 0.991
