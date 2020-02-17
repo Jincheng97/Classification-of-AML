@@ -24,7 +24,7 @@ In the project file folder there are
 		...  
 		- 2872.CSV  
 
-Please run NeuralTraining.ipynb first to train the model. The model is saved to model.h5 and model_weights.h5. Then run NeuralTesting.ipynb to apply the testing data to the saved model to get the results. It takes about 75 minutes to sample from the csv files and train the neural network model.
+Please run NeuralTraining.ipynb first to train the model. The model is saved to model.h5 and model_weights.h5. Then run NeuralTesting.ipynb to apply the testing data to the saved model to get the results. You can also just use the model file trained by myself, which can be loaded in NeuralTesting.ipynb. It takes **about 60 minutes** to sample from the csv files and train the neural network model.
 
 ## Method and Result
 **I used a merged 3-layer neural network for classification.** Shown below is the network structure.  
