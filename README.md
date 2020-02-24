@@ -1,6 +1,6 @@
 # Classification-of-AML
 ## Description of Project
-This is the early term project of BMED 6517, Georgia Institute of Technology. Our group members are Jincheng Zhu, Yuewen Zheng and Hanchen Wang. The goal of this project is to predict patient's AML or normal status from patient blood samples profiled by flow cytomery.  
+This is the early term project of BMED 6517, Georgia Institute of Technology. Our group members are Jincheng Zhu, Yuewen Zheng and Hanchen Wang. The goal of this project is to predict patient's AML or normal status from patient blood samples profiled by flow cytometry.  
 ## Data
 The data are drawn from 359 subjects, among whom 316 are normal while 43 are AML. For each subject, one blood sample is taken and split into 8 tubes. For each tube, 7 channels are measured (FSC, SSC, 5 protein markers). The 5 protein markers for each tube measure different kinds of proteins. (In total 5 * 8 = 40 kinds of proteins are measured.)  
 Normal/AML class labels of 179 samples are given. The task is to predict the class labels of the remaining 180 samples.  
